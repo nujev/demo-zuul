@@ -1,0 +1,22 @@
+server:
+  port: 8082
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  application:
+    name: demo-zuul
+zuul:
+  routes:
+    demo:
+      path: /demo/**
+      url: demo
+    demo-1:
+      path: /demo-1/**
+      url: demo-1
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://{EUREKA-SERVER:localhost}:${EUREKA-PORT:8084}/eureka/
